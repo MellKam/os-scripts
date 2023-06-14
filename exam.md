@@ -97,23 +97,26 @@ crontab -e
    can run this script.
 
 ```bash
-nano scrypt.sh
+nano script.sh
 ```
 
 ```bash
-#!/bin/bash
+#!/bin/sh
 
+# Ignore Ctrl + Z signal (SIGTSTP)
+trap '' SIGTSTP
+
+# Trap Ctrl + C signal (SIGINT)
 trap 'cat "$0"' SIGINT
 
-while true
-do
-    :
+while true; do
+  :
 done
 ```
 
 ```bash
-chmod +x skrypt
-./skrypt
+chmod +x script.sh
+./script.sh
 ```
 
 10. We assume that in the current directory there is a BINARKI directory, which
